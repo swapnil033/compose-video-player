@@ -11,8 +11,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.swapnil.cleanvideoplayer.features.filepicker.presentation.FilePickerScreenRoot
 import com.swapnil.cleanvideoplayer.ui.theme.CleanVideoPlayerTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,10 +23,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             CleanVideoPlayerTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
+                    FilePickerScreenRoot(this@MainActivity)
+                    /*Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
-                    )
+                    )*/
                 }
             }
         }
